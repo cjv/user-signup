@@ -47,7 +47,7 @@ class MainHandler(webapp2.RequestHandler):
 		#add in the form fields
 		add_form = """
 		
-		<form action="/signup" method="post">
+		<form action="/" method="post">
 			<label>Username: </label> 
 			<input type="text" name="username" />
 			<br>
@@ -68,8 +68,6 @@ class MainHandler(webapp2.RequestHandler):
 
 		self.response.write(content)
 
-
-class Signup(webapp2.RequestHandler):
 	def post(self):
 
 		USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
@@ -114,7 +112,7 @@ class Signup(webapp2.RequestHandler):
 			#add in the form fields
 			add_form = """
 			
-			<form action="/signup" method="post">
+			<form action="/" method="post">
 				<label>Username: </label> 
 				<input type="text" name="username" value="{0}"/>
 				<span class="error">{1}</span>
@@ -147,6 +145,5 @@ class Welcome(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
-	('/signup', Signup),
 	('/welcome', Welcome)
 ], debug=True)
