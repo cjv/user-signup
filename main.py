@@ -126,13 +126,13 @@ class MainHandler(webapp2.RequestHandler):
 				<span class="error">{3}</span>
 				<br>
 				<label>Email (optional): </label>
-				<input type="text" name="email" />
-				<span class="error">{4}</span>
+				<input type="text" name="email" value="{4}" />
+				<span class="error">{5}</span>
 				<br><br>
 				<input type="submit" name"submit" value="Submit" />
 			</form>
 			
-			""".format(user,user_error, pass_error, verify_error, email_error)
+			""".format(user,user_error, pass_error, verify_error, email, email_error)
 			content = page_header + add_form + page_footer
 
 			self.response.write(content)
